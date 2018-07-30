@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  watson: {
+    workspace: '2b948ab8-f479-48b5-8f7b-2862e70ec11d',
+    username: '8acbeea9-f766-4da9-ae52-22ba93add377', 
+    password: 'UsXk1z8W8ZJM', 
+    version: '2018-02-16'
+  }
+
 };
 
 /*

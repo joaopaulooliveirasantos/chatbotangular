@@ -1,3 +1,41 @@
-<p>
-  chat-dialog works!
-</p>
+<div class="row">
+  <div class="col-md-4 bg-white "></div>
+    
+  <div class="col-md-8 bg-white ">
+    <h3 class=" text-center">Previ chatbot</h3>
+    <div class="messaging">
+      <div class="inbox_msg"> 
+        <!-- <div class="mesgs"> -->
+          
+          <div class="msg_history">
+            <ng-container *ngFor="let message of messages | async">
+              <div  [ngClass]="{ 'incoming_msg': message.sentBy === 'bot',
+                                 'outgoing_msg': message.sentBy === 'user' }">
+                
+                <div *ngIf="message.sentBy === 'bot'">
+                  <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="chatbot"> </div>
+                </div>
+              
+                <div  [ngClass]="{'received_msg received_withd_msg': message.sentBy === 'bot',
+                                  'sent_msg': message.sentBy === 'user' }">
+              
+                  <p>{{ message.content }}</p>
+                  <span class="time_date"> {{ message.data | date:'dd MMM | HH:mm' }}</span>
+                </div>
+                
+              </div>
+            </ng-container>
+          </div>
+          
+          <div class="type_msg">
+              <div class="input_msg_write">
+                <input [(ngModel)]="formValue" (keyup.enter)="sendMessage()" type="text" class="write_msg" placeholder="Digite sua mensagem" />
+                <button (click)="sendMessage()" class="msg_send_btn"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+              </div>
+          </div>
+
+        <!-- </div> -->
+      </div>
+    </div> 
+  </div>
+</div>

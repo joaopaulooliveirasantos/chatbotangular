@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { ChatService } from './chat/chat.service';
+
+
 
 @Component({
   selector: 'app-root',
@@ -11,9 +13,11 @@ export class AppComponent {
   title = 'chatbotangular';
 
   
-  constructor(http: HttpClient){
+  constructor(chatService: ChatService){
 
-    console.log(http);
+       chatService.sendToWatson('');
+        
+    
 
   }
 
