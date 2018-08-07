@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ChatService } from './chat/chat.service';
+import { ChatService, Message } from './chat/chat.service';
 
 
 
@@ -15,7 +15,7 @@ export class AppComponent {
   
   constructor(chatService: ChatService){
 
-       chatService.sendToWatson('');
+       chatService.sendToWatson(new Message());
         
     
 

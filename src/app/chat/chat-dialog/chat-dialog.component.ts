@@ -23,7 +23,18 @@ export class ChatDialogComponent implements OnInit {
   }
 
   sendMessage() {
-    this.chat.sendToWatson(this.formValue);
+
+    // Preparando Menssagem
+    const userMessage = new Message();
+    userMessage.content = this.formValue;
+    userMessage.sentBy = 'user';
+    userMessage.context = this.chat.getLastMessage()
+                              .context;
+    
+    console.log("Contexto enviado",userMessage.context);
+
+    // Encaminhando para o Watson
+    this.chat.sendToWatson(userMessage);
     this.formValue = '';
   }
 
